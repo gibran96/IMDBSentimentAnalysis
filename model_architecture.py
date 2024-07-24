@@ -11,7 +11,7 @@ def create_model():
     return model
 
 def set_callbacks():
-    checkpoint = ModelCheckpoint("model/best_model50.keras", monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=False)
+    checkpoint = ModelCheckpoint("models/best_model50.keras", monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=False)
     earlystop = EarlyStopping(monitor='val_acc',patience=1)
     return [checkpoint,earlystop]
 

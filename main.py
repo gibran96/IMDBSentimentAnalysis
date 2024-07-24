@@ -44,7 +44,7 @@ def evaluate_model(model,Xt,Yt):
 if __name__ == '__main__':
     hist, model, Xt, Yt = train_model()
     plot_graphs(hist)
-    model.save("model/model50.keras")
+    model.save("models/model50.keras")
     evaluate_model(model,Xt,Yt)
 
 
