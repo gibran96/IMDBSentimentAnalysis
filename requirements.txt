@@ -2,3 +2,4 @@ tf_keras
 tensorflow
 numpy
 matplotlib
+tf_keras.datasets.imdb
