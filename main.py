@@ -1,4 +1,4 @@
-from data_processing import load_data
+from data_processing import l1_norm, l2_norm, load_data
 from data_processing import pad_data
 from model_architecture import create_model
 from model_architecture import set_callbacks
@@ -9,7 +9,7 @@ def train_model():
     XT, Xt = pad_data(XT, Xt)
     model = create_model()
     callbacks = set_callbacks()
-    hist = model.fit(XT, YT, validation_split=0.2, epochs=15, batch_size=128, callbacks=callbacks) 
+    hist = model.fit(XT, YT, validation_split=0.2, epochs=15, batch_size=128) 
     return hist, model, Xt, Yt
 
 def plot_graphs(hist):

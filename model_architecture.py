@@ -1,12 +1,15 @@
 from tf_keras import Sequential
 from tf_keras.layers import Embedding, SimpleRNN, Dense, Dropout
 from tf_keras.callbacks import ModelCheckpoint, EarlyStopping
+from tf_keras.regularizers import l2
 
 def create_model():
     model = Sequential()
     model.add(Embedding(50000,64))
-    model.add(SimpleRNN(64))
-    model.add(Dense(1,activation='sigmoid'))
+    model.add(Dropout(0.5))
+    model.add(SimpleRNN(64, kernel_regularizer=l2(0.01), recurrent_regularizer=l2(0.01)))
+    model.add(Dropout(0.5))
+    model.add(Dense(1,activation='sigmoid', kernel_regularizer=l2(0.01)))
     model.compile(optimizer='rmsprop',loss='binary_crossentropy',metrics=['acc'])
     return model
 
