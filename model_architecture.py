@@ -6,10 +6,13 @@ from tf_keras.regularizers import l2
 def create_model():
     model = Sequential()
     model.add(Embedding(50000,64))
-    model.add(Dropout(0.5))
-    model.add(SimpleRNN(64, kernel_regularizer=l2(0.01), recurrent_regularizer=l2(0.01)))
-    model.add(Dropout(0.5))
+    model.add(Dropout(0.3))
+    model.add(SimpleRNN(64, kernel_regularizer=l2(0.01)))
+    model.add(Dropout(0.3))
+    model.add(Dense(32,activation='sigmoid',kernel_regularizer=l2(0.01)))
+    model.add(Dropout(0.3))
     model.add(Dense(1,activation='sigmoid', kernel_regularizer=l2(0.01)))
+
     model.compile(optimizer='rmsprop',loss='binary_crossentropy',metrics=['acc'])
     return model
 

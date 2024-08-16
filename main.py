@@ -9,7 +9,7 @@ def train_model():
     XT, Xt = pad_data(XT, Xt)
     model = create_model()
     callbacks = set_callbacks()
-    hist = model.fit(XT, YT, validation_split=0.2, epochs=15, batch_size=128) 
+    hist = model.fit(XT, YT, validation_split=0.2, epochs=20, batch_size=128) 
     return hist, model, Xt, Yt
 
 def plot_graphs(hist):
@@ -22,7 +22,7 @@ def plot_graphs(hist):
     plt.plot(epochs,acc,label="Training Acc")
     plt.plot(epochs,val_acc,label="Val Acc")
     plt.legend()
-    plt.savefig("Accuracy.png")
+    plt.savefig("Accuracy_8.png")
 
     plt.close()
 
@@ -35,7 +35,7 @@ def plot_graphs(hist):
     plt.plot(epochs,loss,label="Training Loss")
     plt.plot(epochs,val_loss,label="Val Loss")
     plt.legend()
-    plt.savefig("Loss.png")
+    plt.savefig("Loss_8.png")
 
 def evaluate_model(model,Xt,Yt):
     print("Evaluating Model")
@@ -44,7 +44,7 @@ def evaluate_model(model,Xt,Yt):
 if __name__ == '__main__':
     hist, model, Xt, Yt = train_model()
     plot_graphs(hist)
-    model.save("models/model50.keras")
+    model.save("models/model50_8.keras")
     evaluate_model(model,Xt,Yt)
 
 
