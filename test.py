@@ -2,16 +2,22 @@ from tf_keras.models import load_model
 from tf_keras.datasets import imdb
 from tf_keras.preprocessing import sequence
 
-sent = "I really liked the movie. It was a great movie. I would recommend it to my friends."
+from data_processing import Xt, XT, Yt, pad_data
+
+sent = "Terrible movie terrible acting terrible plot. Waste of time DO NOT watch"
 inp = []
 
 # Load the model
-model = load_model("model50.keras")
+model = load_model("models/model50_8.keras")
+
+# evaluate the model
+XT, Xt = pad_data(XT, Xt)
+model.evaluate(Xt,Yt)
 
 # Get the word:integer mapping
 word_idx = imdb.get_word_index()
 
-print(word_idx[:5])
+# print(word_idx[:5])
 
 # Convert each word to integer
 for word in sent.split():

@@ -6,7 +6,7 @@ from tf_keras.preprocessing import sequence
 
 def check_prediction(review):
     # Load the model
-    model = load_model("models/model50.keras")
+    model = load_model("models/model50_3.keras")
 
     # Get the word:integer mapping
     word_idx = imdb.get_word_index()
