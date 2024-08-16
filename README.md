@@ -32,5 +32,8 @@ In the latest iteration, the accuracy on the validation dataset is 84% and the a
 
 ![loss](Loss_8.png)
 
-## Conclusion
+## Front-End
+The application can be tested using a simple front end page that can be found in the `homepage.py` file. It is built using the streamlit framework. It can be accessed via this link: [https://imdb-sentiment-check.streamlit.app/](https://imdb-sentiment-check.streamlit.app/)
+
+## Conclusion and Future Work
 The model is still being worked on with the goal of getting both the training and validation accuracy to ~95%.
